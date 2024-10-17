@@ -17,13 +17,13 @@ const config: Config = {
         "60px": "60px",
         "70px": "70px",
       },
-      margin: {
+      padding: {
         header: "13.5px",
       },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-        header: "#626262"
+        header: "#626262",
       },
     },
   },
