@@ -34,5 +34,5 @@ body {
 }
 
 p {
-    @apply text-lg text-balance font-giants text-header;
+    @apply text-lg text-balance font-giants;
 }
