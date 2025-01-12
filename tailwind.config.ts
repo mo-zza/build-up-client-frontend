@@ -24,7 +24,8 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
         header: "#626262",
-        blue: "#6275DE"
+        blue: "#6275DE",
+        green: "#4D9B6F",
       },
     },
   },

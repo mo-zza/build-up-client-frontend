@@ -61,10 +61,10 @@ const VerifyCode = () => {
 
     return <>
         <BasePopup
-            on={true}
+            on={verified}
             handleOn={() => setVerified(false)}
         >
-            <p className="p-[20px] lg:text-[40px] md:text-[30px] sm:text-[20px]">임시 비밀번호 전송 완료</p>
+            <p className="pt-[0px] p-[20px] lg:text-[40px] md:text-[30px] sm:text-[20px]">임시 비밀번호 전송 완료</p>
             <p align="center" className="p-[20px] lg:text-[20px] md:text-[20px] text-[15px]">이메일로 발송된 임시 비밀번호를 확인한 후, 빌드업에 로그인해주세요.</p>
             <p align="center" className="p-[20px] lg:text-[20px] md:text-[20px] text-[15px]">보안을 위해 로그인 후 마이페이지에서 비밀번호를 변경하기시 바랍니다.</p>
             <div className="p-[20px] w-full">

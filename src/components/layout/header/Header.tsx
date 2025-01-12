@@ -6,7 +6,7 @@ import {PAGE_PATH} from "@src/enum/Path";
 
 export const Header = () => {
 
-    const headerTextClass = "w-[74px] h-[23px] font-header lg:text-base md:text-[0.8rem] sm:text-[0.8rem]";
+    const headerTextClass = "w-[74px] h-[23px] font-header lg:text-base md:text-[0.8rem] sm:text-[0.8rem] cursor-pointer";
     return (
         <header className={`${flexCenter} lg:gap-70px md:gap-20px w-full py-header border-b-2 border-header bg-white`}>
             <Logo />

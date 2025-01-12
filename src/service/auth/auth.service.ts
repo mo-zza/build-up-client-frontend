@@ -47,4 +47,50 @@ export class AuthService {
             status: response.status
         }
     }
+
+    async sendSignUpCode(email: string) {
+        const response = await fetch(API_PATH.VERIFY_SIGN_UP, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({email})
+        })
+
+        if (!response.ok) {
+            return {
+                error: response.statusText,
+                status: response.status
+            }
+        }
+
+        const data = await response.json()
+        return {
+            data,
+            status: response.status
+        }
+    }
+
+    async verifyCode(email: string, code: string) {
+        const response = await fetch(API_PATH.VERIFY_CODE, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({email, code})
+        })
+
+        if (!response.ok) {
+            return {
+                error: response.statusText,
+                status: response.status
+            }
+        }
+
+        const data = await response.json()
+        return {
+            data,
+            status: response.status
+        }
+    }
 }

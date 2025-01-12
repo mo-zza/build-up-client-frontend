@@ -2,12 +2,21 @@
 
 import {ChangeEventHandler, HTMLInputTypeAttribute} from "react";
 
-const UnderlineInput = (props: { type: HTMLInputTypeAttribute, value: string, onChange: ChangeEventHandler, title: string}) => {
-    const {type, value, onChange, title} = props;
+const UnderlineInput = (props: {
+    type: HTMLInputTypeAttribute,
+    value: string,
+    onChange: ChangeEventHandler,
+    title: string,
+    required?: boolean
+}) => {
+    const {type, value, onChange, title, required = false} = props;
 
     return (
         <div className="w-full py-[20px]">
-            <p>{title}</p>
+            <div className="flex">
+                {required && <p className="text-blue">*</p>}
+                <p>{title}</p>
+            </div>
             <input
                 type={type}
                 value={value}
