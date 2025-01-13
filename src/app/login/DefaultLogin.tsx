@@ -7,12 +7,18 @@ import LinkText from "@src/components/font/LinkText/LinkText";
 import {PAGE_PATH} from "@src/enum/Path";
 import {AuthService} from "@src/service/auth/auth.service";
 import {useRouter} from "next/navigation";
+import useLocalStorage from "@src/hooks/useLocalStorage";
+import {TOKEN} from "@src/enum/Auth";
+import {useSetRecoilState} from "recoil";
+import {userState} from "@src/atom/UserAtom";
 
 const DefaultLogin = () => {
     const [email, setEmail] = useState<string>("");
     const [password, setPassword] = useState<string>("");
     const [buttonEnabled, setButtonEnabled] = useState<boolean>(false);
     const router = useRouter();
+    const {setLocalStorage} = useLocalStorage();
+    const setNickname = useSetRecoilState(userState);
 
     const handleEmail = (e: ChangeEvent<HTMLInputElement>) => {
         setEmail(e.target.value);
@@ -29,9 +35,16 @@ const DefaultLogin = () => {
         }
         const authService = new AuthService();
         const res = await authService.login(email, password);
-        console.log(res);
         switch (res.status) {
             case 200:
+                const accessToken = res.data.data.access_token;
+                const nickname = email.split("@")[0];
+                setLocalStorage(TOKEN.ACCESS_TOKEN, accessToken);
+                setLocalStorage(TOKEN.NICKNAME, email.split("@")[0]);
+                setNickname({
+                    nickname,
+                    accessToken
+                })
                 router.push(PAGE_PATH.HOME);
                 break;
             case 404:

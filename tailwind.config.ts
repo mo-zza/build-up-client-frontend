@@ -25,7 +25,7 @@ const config: Config = {
         foreground: "var(--foreground)",
         header: "#626262",
         blue: "#6275DE",
-        green: "#4D9B6F",
+        green: "#50AF95",
       },
     },
   },

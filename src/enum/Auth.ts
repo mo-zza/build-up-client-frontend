@@ -1,0 +1,4 @@
+export enum TOKEN {
+    ACCESS_TOKEN = "BU_ACC_TOKEN",
+    NICKNAME = "BU_ACC_USER"
+}

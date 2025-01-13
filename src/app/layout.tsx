@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import {Header} from "@src/components/layout/header/Header";
+import RecoilRootWrapper from "@src/components/wrapper/RecoilWrapper";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -29,8 +30,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+      <RecoilRootWrapper>
       <Header />
         {children}
+      </RecoilRootWrapper>
       </body>
     </html>
   );
